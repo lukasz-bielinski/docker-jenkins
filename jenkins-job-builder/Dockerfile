@@ -3,6 +3,7 @@ FROM oberthur/docker-ubuntu-java:jdk8_8.45.14
 MAINTAINER Dawid Malinowski <d.malinowski@oberthur.com>
 
 WORKDIR /opt
+ENV BRANCH malina
 
 RUN apt-get update \
     && apt-get install -y python-setuptools python-dev libyaml-dev git \
@@ -14,12 +15,12 @@ RUN apt-get update \
 
 RUN git clone https://github.com/oberthur/jenkins-job-builder.git \
     && cd jenkins-job-builder \
-    && git checkout develop \
+    && git checkout $BRANCH \
     && python setup.py install \
     # override python-jenkins with own version
-    && git clone https://github.com/oberthur/python-jenkins \
+    && git clone https://github.com/oberthur/python-jenkins.git \
     && cd python-jenkins \
-    && git checkout develop \
+    && git checkout $BRANCH \
     && python setup.py install
 
 # clean all cache to clean space
