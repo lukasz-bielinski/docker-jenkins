@@ -5,7 +5,7 @@ MAINTAINER Kacper Piechota <k.piechota@oberthur.com>
 ENV MAVEN_VERSION 3.2.3
 ENV MAVEN_HOME /usr/share/maven
 
-ENV ANDROID_VERSION 22
+ENV ANDROID_VERSION 21
 ENV ANDROID_HOME /opt/android-sdk-linux/
 
 ENV GRADLE_VERSION 2.5
@@ -25,9 +25,9 @@ RUN curl -fsSL http://archive.apache.org/dist/maven/maven-3/$MAVEN_VERSION/binar
   && echo "y" | android update sdk --force --no-ui --all --filter platform-tools,build-tools-$ANDROID_VERSION.0.1,android-$ANDROID_VERSION,addon-google_apis-google-$ANDROID_VERSION,sys-img-x86-addon-google_apis-google-$ANDROID_VERSION,source-$ANDROID_VERSION,extra-android-m2repository,extra-google-m2repository \
   && mkdir -p /opt/android-sdk-linux/build-tools \
   && cd /opt/android-sdk-linux/build-tools \
-  && wget --progress=dot:giga https://dl.google.com/android/repository/build-tools_r22.0.1-linux.zip \
-  && unzip build-tools_r22.0.1-linux.zip \
-  && rm build-tools_r22.0.1-linux.zip \
+  && wget --progress=dot:giga https://dl.google.com/android/repository/build-tools_r21.0.1-linux.zip \
+  && unzip build-tools_r21.0.1-linux.zip \
+  && rm build-tools_r21.0.1-linux.zip \
   && wget --progress=dot:giga https://services.gradle.org/distributions/gradle-$GRADLE_VERSION-bin.zip \
   && mv gradle-$GRADLE_VERSION-bin.zip /opt/. \
   && unzip /opt/gradle-$GRADLE_VERSION-bin.zip -d /opt \
