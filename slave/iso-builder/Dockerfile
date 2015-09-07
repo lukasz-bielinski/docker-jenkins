@@ -2,7 +2,7 @@ FROM oberthur/jenkins-slave-base:1.5.0_1.23
 
 # Make sure the package repository is up to date.
 RUN apt-get update \
-    && apt-get install -y ansible python-pycurl bsdtar genisoimage \
+    && apt-get install -y ansible python-pycurl bsdtar genisoimage sshpass \
     && echo "[local]\n127.0.0.1" > /etc/ansible/hosts
 
 # clean all cache to clean space
