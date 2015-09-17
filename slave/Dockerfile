@@ -33,5 +33,7 @@ RUN mkdir -p /opt/jenkins-slave \
     && chown -R jenkins-slave:jenkins-slave /opt/ \
     && mkdir -p /home/jenkins-slave \
     && chown -R jenkins-slave:jenkins-slave /home/jenkins-slave
+RUN curl -sSL https://get.docker.com/ | sh    
+    
 
 ENTRYPOINT [ "/usr/bin/supervisord", "-n", "-c", "/etc/supervisor/supervisord.conf" ]
