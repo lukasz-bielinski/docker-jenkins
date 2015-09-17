@@ -1,4 +1,4 @@
-FROM oberthur/jenkins-slave-base:2.0
+FROM lukaszbielinski/docker-jenkins:latest
 
 ENV MAVEN_VERSION 3.3.3
 ENV MAVEN_HOME /usr/share/maven
